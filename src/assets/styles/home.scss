@@ -1,0 +1,301 @@
+@import './variables';
+
+
+#hero {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    background-color: $primary_color1;
+    
+
+    .wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: $max_width;
+
+        .content {
+            max-width: 400px;
+            color: white;
+
+            h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                color: $primary_color2;
+            }
+
+            .location, .description {
+                margin-bottom: 10px;
+            }
+
+            .location {
+                font-size: 2rem;
+            }
+
+            .button {
+                display: block;
+                text-align: center;
+                width: 200px;
+                margin-top: 20px;
+                color: black;
+                font-weight: bold;
+                padding: 10px;
+                background-color: $primary_color2;
+                border-radius: 16px;
+
+                &:hover {
+                    background-color: #f4ce148a;         
+                }
+            }
+        }
+
+        .image {
+            width: 400px;
+            height: 100%;
+            img {
+               width: 100%; 
+               height: 100%;
+               object-fit: cover; 
+               border-radius: 16px;
+
+               position: relative;
+               top: 73px;
+            }
+        }
+    }
+}
+
+
+#highlights {
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    
+
+    .wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: $max_width;
+
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            margin-bottom: 20px;
+
+            h1 {
+                font-size: 2rem;
+                font-weight: bold;
+                color: black;
+            }
+
+            .button {
+                display: block;
+                text-align: center;
+                width: 200px;
+                color: black;
+                font-weight: bold;
+                padding: 10px;
+                background-color: $primary_color2;
+                border-radius: 8px;
+
+                &:hover {
+                    background-color: #f4ce148a;         
+                }
+            }
+        }
+
+        .cards {
+            display: flex;
+            gap: 40px;
+
+            .card {
+                flex: 1;
+                border-radius: 20px 20px 0 0;
+                background-color: $highlight_color1;
+
+                .image {
+                    width: 100%;
+                    height: 250px;
+                    img {
+                       width: 100%; 
+                       height: 100%;
+                       object-fit: cover; 
+                       border-radius: 20px 20px 0 0;
+                    }
+                }
+
+                .content {
+                    padding: 20px;
+
+                    .heading {
+                        font-weight: bold;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .title {
+                            flex: 1;
+                            font-weight: bold;
+                            color: $highlight_color2;
+                        }
+
+                        .price {
+                            color: $secondary_color1;
+                        }
+                    }
+
+                    .description {
+                        font-size: 0.8rem;
+                        margin-bottom: 20px;
+                        font-weight: 300;
+                    }
+
+                    .order {
+                        font-size: 0.8rem;
+                        font-weight: bold;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+#testimonials {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background-color: $primary_color1;
+    
+
+    .wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: $max_width;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .testimonials {
+            display: flex;
+            gap: 20px;
+
+            .testimonial {
+                flex: 1;
+                background-color: $highlight_color1;
+                font-size: 0.8rem;
+                padding: 10px;
+
+                .rating {
+                    display: flex;
+                    margin-bottom: 10px;
+
+                    .starred {
+                        color: $primary_color2
+                    }
+
+                }
+
+                .customer {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    margin-bottom: 10px;
+
+                    .image {
+                        width: 50px;
+                        height: 50px;
+                        margin-right: 5px;
+
+                        img {
+                           width: 100%; 
+                           height: 100%;
+                           object-fit: cover; 
+                        }
+                    }
+
+                    .name {
+                        font-weight: bold;
+
+                    }
+                }
+
+                .review {
+
+                }
+            }
+        }
+    }
+}
+
+
+#about {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+    
+    .wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: $max_width;
+
+        .content {
+            max-width: 400px;
+            color: $highlight_color2;
+
+            .title {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: $primary_color2;
+            }
+
+            .location, .description {
+                margin-bottom: 10px;
+            }
+
+            .location {
+                font-size: 1.5rem;
+            }
+        }
+
+        .images {
+            width: 300px;
+            height: 400px;
+            position: relative;
+
+            .image {
+                width: 100%; 
+                height: 100%;
+                img {
+                    width: 100%; 
+                    height: 100%;
+                    object-fit: cover; 
+                    border-radius: 16px;
+                }
+            }
+
+            .image2 {
+                position: absolute;
+                top: 100px;
+                right: 100px;
+                z-index: -1;
+            }
+     
+
+        }
+    }
+}
