@@ -6,7 +6,9 @@ const Order = ({setActive}) => {
     }, [])
 
     return (
-        <h1>Order Time</h1>
+        <div id="order" data-testid="order_component">
+            <h1>Order Time</h1>
+        </div>
     )
 }
 

@@ -6,7 +6,10 @@ const Login = ({setActive}) => {
     }, [])
 
     return (
-        <h1>Login</h1>
+        <div id="login" data-testid="login_component">
+            <h1>Login</h1>
+        </div>
+        
     )
 }
 

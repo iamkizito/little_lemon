@@ -1,34 +1,13 @@
 import { useEffect, useState } from "react";
 
-const Reservation = ({setActive}) => {
-    useEffect(() => {
-        // highlight the nav button on the header section
-        setActive('reservations')
-    }, [])
+const ReservationForm = ({setFormdata}) => {
+    const today = new Date()
 
-    return (
-        <>     
-        <h1>Make reservation</h1>
-        <BookingForm/>
-        </>
-    )
-}
-
-export default Reservation;
-
-
-
-const BookingForm = () => {
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState(today.toISOString().split('T')[0])
     const [time, setTime] = useState('')
     const [guest, setGuest] = useState(1)
     const [occasion, setOccasion] = useState('')
-
-    const [formData, setFormdata] = useState(null)
-    const [formResponse, setFormResponse] = useState(null)
     const [formValidationError, setFormValidationError] = useState(null)
-    const [availableTimes, setAvailableTimes] = useState([])
-
     const occasions = ['birthday', 'wedding', 'other']
 
     const handleSubmit = (e) => {
@@ -64,48 +43,19 @@ const BookingForm = () => {
         setFormValidationError(null)
     }
 
-    useEffect(() => {
-        if (formData  === null) {
-            return
-        }
-        const postData = () => {
-            setTimeout(() => {
-                setFormResponse({
-                    status:'success',
-                    message: 'Reservation booked successfully',
-                    data: {}
-                })
-            }, 1000)
-        }
-
-        postData()
-    }, [formData])
-
-    useEffect(() => {
-        if (date  === '') {
-            return
-        }
-        const getAvailableTimes = () => {
-            setTimeout(() => {
-                setAvailableTimes(['17:00', '18:00', '19:00'])
-            }, 1000)
-        }
-
-        getAvailableTimes()
-    }, [date])
+    const {availableTimes, loading, error} = useAvailableTimes(date)
 
     return (
-        <form action=""  onSubmit={handleSubmit}>
-            {formValidationError && <div className="error">{formValidationError}</div>}
-            {!formValidationError && formResponse && <div className="success">{formResponse.message}</div>}
+        <form action=""  onSubmit={handleSubmit} data-testid="booking_form_component">
+            {formValidationError && <div className="error" data-testid="error">{formValidationError}</div>}
 
             <div>
                 <label htmlFor="date">Select a Date</label>
-                <input type="date" name="date" id="date" value={date} onChange={(e) => setDate(e.target.value)}/>
+                <input type="date" name="date" id="date" data-testid="date" value={date} onChange={(e) => setDate(e.target.value)}/>
             </div>
             <div>
                 <label htmlFor="time">Select preferred time</label>
-                <select name="time" id="time" value={time} onChange={(e) => setTime(e.target.value)}>
+                <select name="time" id="time" data-testid="time" value={time} onChange={(e) => setTime(e.target.value)}>
                     <option value=""></option>
                     {availableTimes.map((availableTime, index) => {
                         return (
@@ -116,11 +66,11 @@ const BookingForm = () => {
             </div>
             <div>
                 <label htmlFor="guest">Number of guests</label>
-                <input type="number" name="guest" id="guest" min={1} max={10} value={guest} onChange={(e) => setGuest(e.target.value)}/>
+                <input type="number" name="guest" id="guest" data-testid="guest" min={1} max={10} value={guest} onChange={(e) => setGuest(e.target.value)}/>
             </div>
             <div>
                 <label htmlFor="occasion">Choose Occasion</label>
-                <select name="occasion" id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+                <select name="occasion" id="occasion" data-testid="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
                     <option value=""></option>
                     {occasions.map((occasion, index) => {
                         return (
@@ -129,7 +79,33 @@ const BookingForm = () => {
                     })}
                 </select>
             </div>
-            <input type="submit" value="make your reservation"/>
+            <input type="submit" data-testid="submit" value="make your reservation"/>
         </form>
     )
+}
+
+export default ReservationForm;
+
+
+
+
+
+export const useAvailableTimes = (date) => {
+    const [availableTimes, setAvailableTimes] = useState([]);
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        const getAvailableTimes = () => {
+            setLoading(true);
+            setTimeout(() => {
+                setAvailableTimes(['17:00', '18:00', '19:00']);
+                setLoading(false);
+            }, 1000);
+        };
+
+        getAvailableTimes();
+    }, [date]);
+
+    return {availableTimes, loading, error}
 }

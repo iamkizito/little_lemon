@@ -72,7 +72,7 @@ const contacts = [
 
 const Footer = ({setActive}) => {
     return (
-        <section id="footer">
+        <footer id="footer" data-testid="footer_component">
             <div className="wrapper">
                 <div className="image">
                     <img src={footerLogo} alt="logo image" />
@@ -115,7 +115,7 @@ const Footer = ({setActive}) => {
                     })}
                 </div>
             </div>
-        </section>
+        </footer>
     )
 }
 
