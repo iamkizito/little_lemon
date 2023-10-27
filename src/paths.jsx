@@ -4,6 +4,8 @@ const paths = {
     "order": "/order",
     "reservation": "/reservation",
     "login": "/login",
+    "register": "/register",
+    "cart": "/cart"
 }
 
 export default paths;

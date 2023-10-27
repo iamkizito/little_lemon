@@ -3,33 +3,9 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin, faMedium, faStackOverflow} from "@fortawesome/free-brands-svg-icons";
 import '../assets/styles/footer.css';
 import footerLogo from '../assets/images/Asset 18@4x.png';
-
-const navLinks = [
-    {
-        name:'Home',
-        url: '#home'
-    },
-    {
-        name:'About',
-        url: '#about'
-    },
-    {
-        name:'Menu',
-        url: '#menu'
-    },
-    {
-        name:'Reservations',
-        url: '#reservations'
-    },
-    {
-        name:'Order Online',
-        url: '#order_online'
-    },
-    {
-        name:'Login',
-        url: '#login'
-    },
-]
+import SectionContainer from "./SectionContainer";
+import { navLinks } from "./Header";
+import { Link } from "react-router-dom";
 
 const socials = [
     {
@@ -73,7 +49,7 @@ const contacts = [
 const Footer = ({setActive}) => {
     return (
         <footer id="footer" data-testid="footer_component">
-            <div className="wrapper">
+            <SectionContainer className="wrapper">
                 <div className="image">
                     <img src={footerLogo} alt="logo image" />
                 </div>
@@ -84,11 +60,11 @@ const Footer = ({setActive}) => {
                         {navLinks.map((navLink, index) => {
                             let name = navLink.name.toLowerCase()
                             return (
-                                <a key={index} href={navLink.url} className="nav_item"  
+                                <Link key={index} to={navLink.url} className="nav_item"  
                                     onClick={() => setActive(name)}
                                 >
                                     {navLink.name}
-                                </a>  
+                                </Link>  
                             )              
                         })}
                     </nav>
@@ -108,13 +84,13 @@ const Footer = ({setActive}) => {
                     <h1 className="title">Social media</h1>
                     {socials.map((social, index) => {
                         return (
-                            <a key={index} className='social' href={social.url} target="_blank" rel="noopener noreferrer">
+                            <Link key={index} className='social' to={social.url} target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={social.icon} />
-                            </a>
+                            </Link>
                         )
                     })}
                 </div>
-            </div>
+            </SectionContainer>
         </footer>
     )
 }

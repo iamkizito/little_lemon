@@ -9,7 +9,6 @@
 #footer .wrapper {
   flex: 1;
   display: flex;
-  max-width: 1000px;
   justify-content: space-between;
   align-items: start;
   font-size: 0.75rem;

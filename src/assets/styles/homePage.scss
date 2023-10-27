@@ -13,7 +13,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: $max_width;
 
         .content {
             max-width: 400px;
@@ -129,7 +128,10 @@
                 }
 
                 .content {
+                    min-height: 200px;
                     padding: 20px;
+                    display: flex;
+                    flex-direction: column;
 
                     .heading {
                         font-weight: bold;
@@ -148,14 +150,28 @@
                     }
 
                     .description {
+                        flex: 1;
                         font-size: 0.8rem;
                         margin-bottom: 20px;
                         font-weight: 300;
                     }
 
-                    .order {
+                    .add_to_cart {
+                        display: flex;
                         font-size: 0.8rem;
                         font-weight: bold;
+                        cursor: pointer;
+
+                        .icon {
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 5px;
+            
+                            svg {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
                     }
                 }
 

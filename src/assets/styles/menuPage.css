@@ -1,0 +1,100 @@
+main#menu_page {
+  min-height: 800px;
+  padding-bottom: 100px;
+}
+main#menu_page .categories_section {
+  background-color: #495E57;
+  margin-bottom: 50px;
+  padding: 20px;
+  display: flex;
+}
+main#menu_page .categories_section .container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+main#menu_page .categories_section .container .categories {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+main#menu_page .categories_section .container .categories .category {
+  display: block;
+  text-align: center;
+  min-width: 100px;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  background-color: lightgray;
+  border-radius: 16px;
+}
+main#menu_page .categories_section .container .categories .category.active {
+  background-color: rgba(244, 206, 20, 0.5411764706);
+}
+main#menu_page .meals_section .container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 1000px;
+}
+main#menu_page .meals_section .container .meals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+main#menu_page .meals_section .container .meals .meal_card {
+  flex: 1;
+  border-radius: 20px 20px 0 0;
+  background-color: #EDEFEE;
+}
+main#menu_page .meals_section .container .meals .meal_card .image {
+  width: 100%;
+  height: 250px;
+}
+main#menu_page .meals_section .container .meals .meal_card .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+main#menu_page .meals_section .container .meals .meal_card .content {
+  min-height: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+main#menu_page .meals_section .container .meals .meal_card .content .heading {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+main#menu_page .meals_section .container .meals .meal_card .content .heading .title {
+  flex: 1;
+  font-weight: bold;
+  color: #333333;
+}
+main#menu_page .meals_section .container .meals .meal_card .content .heading .price {
+  color: #EE9972;
+}
+main#menu_page .meals_section .container .meals .meal_card .content .description {
+  flex: 1;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+main#menu_page .meals_section .container .meals .meal_card .content .add_to_cart {
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+main#menu_page .meals_section .container .meals .meal_card .content .add_to_cart .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+main#menu_page .meals_section .container .meals .meal_card .content .add_to_cart .icon svg {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=menuPage.css.map */

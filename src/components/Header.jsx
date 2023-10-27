@@ -4,8 +4,12 @@ import logo from '../assets/images/Logo.svg'
 import '../assets/styles/header.css';
 import paths from "../paths";
 import { Link } from "react-router-dom";
+import SectionContainer from "./SectionContainer";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useCartContext } from "../contexts/useCartContext";
 
-const navLinks = [
+export const navLinks = [
     {
         name:'home',
         url: paths.home
@@ -23,7 +27,7 @@ const navLinks = [
         url: paths.reservation
     },
     {
-        name:'order',
+        name:'Orders',
         url: paths.order
     },
     {
@@ -39,9 +43,19 @@ const Header = ({active, setActive}) => {
         setActive('home')
     }, [])
 
+    const {cart, addToCart} = useCartContext()
+
+    const totalInCart = () => {
+        let count = 0
+        cart.forEach((item, index) => {
+            count += item.count
+        })
+        return count
+    }
+
     return (
         <header id="header" data-testid="header_component">
-            <div className="wrapper">
+            <SectionContainer className="wrapper">
                 <div className="logo">
                     <img src={logo} alt="Logo" />
                 </div>
@@ -59,7 +73,13 @@ const Header = ({active, setActive}) => {
                         )              
                     })}
                 </nav>
-            </div>
+                <Link to={paths.cart} className="cart">
+                    <div className="count">{totalInCart()}</div>
+                    <div className="icon">
+                        <FontAwesomeIcon icon={faCartShopping}/>
+                    </div>
+                </Link>
+            </SectionContainer>
         </header>
     )
 };

@@ -1,0 +1,72 @@
+main#register_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+}
+main#register_page .container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+main#register_page .container .form_area {
+  flex: 1;
+  max-width: 500px;
+  padding: 20px;
+}
+main#register_page .container .form_area .login_redirect {
+  color: #1976d2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+main#register_page .container .form_area .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main#register_page .container .form_area .title .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+}
+main#register_page .container .form_area .title .icon svg {
+  width: 100%;
+  height: 100%;
+}
+main#register_page .container .form_area .title h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#register_form .form_control {
+  margin-bottom: 20px;
+}
+#register_form .button {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: #F4CE14;
+}
+#register_form .button:hover {
+  background-color: rgba(244, 206, 20, 0.5411764706);
+}
+#register_form .buttons {
+  display: flex;
+  justify-content: end;
+}
+#register_form .buttons .button {
+  text-align: center;
+  width: 110px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: #F4CE14;
+}
+#register_form .buttons .button:hover {
+  background-color: rgba(244, 206, 20, 0.5411764706);
+}/*# sourceMappingURL=registerPage.css.map */

@@ -1,55 +1,53 @@
-import { useEffect, useState } from "react";
-import ReservationForm from "./ReservationForm";
+import { faCircleCheck, faCircleXmark, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Reservation = ({setActive}) => {
-    const [formData, setFormdata] = useState(null)
+const Reservation = ({date, time, guest, occasion}) => {
 
-    useEffect(() => {
-        setActive('reservation')
-    }, [])
+    const getIcon = (date, time) => {
+        const now = new Date()
+        const target = new Date(date)
+        const [targetHours, targetMinutes] = time.split(":");
+        target.setHours(targetHours);
+        target.setMinutes(targetMinutes);
 
-    const {response, loading, error} = useSubmitForm(formData)
-
+        const missed = false
+        
+        if (now.getTime() > target.getTime()) {
+            if (missed) {
+                return <FontAwesomeIcon className="missed" icon={faCircleXmark}/>
+            } else {
+                return <FontAwesomeIcon className="met" icon={faCircleCheck}/>
+            }
+        } else {
+            return <FontAwesomeIcon className="pending" icon={faCircleMinus}/>
+        } 
+    }
     return (
-        <div id="reservation" data-testid="reservation_component">
-            {response && <div className="success" data-testid="success">{response.message}</div>}
-
-            <h1>Make reservation</h1>
-            <ReservationForm setFormdata={setFormdata}/>
+        <div className="reservation"> 
+            <div className="icon">
+                {getIcon(date, time)}
+            </div>
+            <div className="summary">
+                <div className="entry date">
+                    <div className="name">Reservation date:</div>
+                    <div className="value">{date}</div>
+                </div>
+                <div className="entry time">
+                    <div className="name">Reservation time:</div>
+                    <div className="value">{time}</div>
+                </div>
+                <div className="entry guest">
+                    <div className="name">Total guests:</div>
+                    <div className="value">{guest}</div>
+                </div>
+                <div className="entry occasion">
+                    <div className="name">Occasion:</div>
+                    <div className="value">{occasion}</div>
+                </div>         
+            </div>
         </div>
     )
 }
 
+
 export default Reservation;
-
-
-
-export const useSubmitForm = (formData) => {
-    const [response, setResponse] = useState(null)
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
-
-    useEffect(() => {
-        if (formData  === null) {
-            return 
-        }
-        const postData = () => {
-            setLoading(true)
-            setTimeout(() => {
-                setResponse({
-                    status:'success',
-                    message: 'Reservation booked successfully',
-                    data: {}
-                })
-                setLoading(false)
-            }, 1000)
-        }
-
-        postData()
-    }, [formData])
-
-    return {response, loading, error}
-}
-
-
-
