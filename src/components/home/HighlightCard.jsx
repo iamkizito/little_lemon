@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const HighlightCard = ({id, imageSrc, title, description, price}) => {
-    const {cart, addToCart} = useCartContext()
+    const {cart, add} = useCartContext()
 
     const handleAddToCart = () => {
-        addToCart({
+        add({
             id: id,
+            imageSrc: imageSrc,
             title: title,
             price: price,
         })
@@ -23,7 +24,7 @@ const HighlightCard = ({id, imageSrc, title, description, price}) => {
             <div className="content">            
                 <div className="heading">
                     <div className="title">{title}</div>
-                    <div className="price">{price}</div>
+                    <div className="price">${price}</div>
                 </div>
                 <div className="description">{description}</div>
                 <div className="add_to_cart" onClick={handleAddToCart}>

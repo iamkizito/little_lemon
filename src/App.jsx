@@ -5,9 +5,10 @@ import Footer from "./components/Footer";
 import Home from "./components/home/HomePage";
 import MenuPage from "./components/menu/MenuPage";
 import ReservationPage from "./components/reservation/ReservationPage";
-import Order from "./components/orders/Order";
+import OrdersPage from "./components/orders/OrdersPage";
 import LoginPage from "./components/auth/LoginPage";
 import RegisterPage from "./components/auth/RegisterPage";
+import CartPage from "./components/cart/CartPage";
 import paths from './paths';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { CartProvider } from "./contexts/useCartContext";
@@ -26,10 +27,11 @@ const App = () => {
                         <Routes>
                             <Route exact path={paths.home} element={<Home setActive={setActive}/>}/>
                             <Route exact path={paths.menu} element={<MenuPage setActive={setActive}/>}/>
-                            <Route exact path={paths.order} element={<Order setActive={setActive}/>}/>
+                            <Route exact path={paths.orders} element={<OrdersPage setActive={setActive}/>}/>
                             <Route exact path={paths.reservation} element={<ReservationPage setActive={setActive}/>}/>
                             <Route exact path={paths.login} element={<LoginPage setActive={setActive}/>}/>
                             <Route exact path={paths.register} element={<RegisterPage/>}/>
+                            <Route exact path={paths.cart} element={<CartPage/>}/>
                             {/* <Route path="*" element={<NoPage />} /> */}
                         </Routes>
                         <Footer setActive={setActive}/>

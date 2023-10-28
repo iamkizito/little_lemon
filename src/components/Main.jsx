@@ -1,14 +1,13 @@
-import '../assets/styles/main.css'
+import { Box } from '@chakra-ui/react';
 
-const Main = ({children, className, id, ...props}) => {
+const Main = ({children, ...props}) => {
     return (
-        <main 
-        id = {id?id:''}
-        className={`${className?className:''}`}
-        {...props}
+        <Box as="main"
+            flex={1}
+            {...props}
         >
             {children}
-        </main>
+        </Box>
     )
 }
 

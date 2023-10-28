@@ -1,13 +1,14 @@
-import '../assets/styles/section_container.css'
+import { Box } from '@chakra-ui/react';
 
-const SectionContainer = ({children, className, ...props}) => {
+const SectionContainer = ({children, ...props}) => {
     return (
-        <div 
-        className={`section_container ${className?className:''}`}
-        {...props}
+        <Box
+            maxWidth="1000px"
+            margin="0 auto"
+            {...props}
         >
             {children}
-        </div>
+        </Box>
     )
 }
 

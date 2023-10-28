@@ -7,21 +7,24 @@ import SectionContainer from "../SectionContainer";
 
 const highlights_data_sample = [
     {
+        id: 1,
         imageSrc: require("../../assets/images/greek salad.jpg"),
         title: "Greek sald",
-        price: "$12.99",
+        price: "12.99",
         description: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
     },
     {
+        id: 2,
         imageSrc: require("../../assets/images/bsd.png"),
         title: "Bruchetta",
-        price: "$5.99",
+        price: "5.99",
         description: "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
     },
     {
+        id: 3,
         imageSrc: require("../../assets/images/lemon dessert.jpg"),
         title: "Lemon Dessert",
-        price: "$5.00",
+        price: "5.00",
         description: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
     },
 ]
@@ -64,7 +67,8 @@ const HighlightsSection = ({setActive}) => {
                     {!loading && data && data.map((special, index) => {
                         return (
                             <HighlightCard 
-                                key={index}
+                                key={special.id}
+                                id={special.id}
                                 imageSrc={special.imageSrc}
                                 title={special.title}
                                 description={special.description}

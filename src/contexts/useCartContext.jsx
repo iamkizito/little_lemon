@@ -9,7 +9,7 @@ export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
     // const { data, loading, error } = useFetch(paths.cart)
 
-    const addToCart = (newItem) => {
+    const add = (newItem) => {
         let updatedCart = []
         let found = false
 
@@ -28,9 +28,26 @@ export const CartProvider = ({children}) => {
         setCart(updatedCart)
     }
 
+    const remove = (newItem) => {
+        let updatedCart = []
+        let found = false
+
+        cart.forEach((item, index) => {
+            if (item.id === newItem.id) {
+                found = true
+                item.count --
+            }
+
+            if (item.count != 0) {
+                updatedCart.push(item)
+            }
+        })
+        setCart(updatedCart)
+    }
+
     return (
         <CartContext.Provider 
-            value={{cart, addToCart}}
+            value={{cart, add, remove}}
         >
             {children}      
         </CartContext.Provider>

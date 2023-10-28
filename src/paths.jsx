@@ -1,7 +1,7 @@
 const paths = {
     "home": "/",
     "menu": "/menu",
-    "order": "/order",
+    "orders": "/orders",
     "reservation": "/reservation",
     "login": "/login",
     "register": "/register",

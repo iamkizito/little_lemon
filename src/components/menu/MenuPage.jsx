@@ -2,32 +2,13 @@ import { useEffect } from "react";
 import MealCard from "./MealCard";
 import Main from "../Main";
 import SectionContainer from "../SectionContainer";
+import CategoryButton from "./CategoryButton";
 import { Skeleton } from "@chakra-ui/react";
 import { useState } from "react";
-import '../../assets/styles/menuPage.css'
+import { Flex, Box, Grid } from "@chakra-ui/react";
+import { colorPallete as cp } from "../../variables";
 
 
-
-const mealsFromServer = [
-    {
-        imageSrc: require("../../assets/images/greek salad.jpg"),
-        title: "Greek sald",
-        price: "$12.99",
-        description: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
-    },
-    {
-        imageSrc: require("../../assets/images/bsd.png"),
-        title: "Bruchetta",
-        price: "$5.99",
-        description: "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
-    },
-    // {
-    //     imageSrc: require("../../assets/images/lemon dessert.jpg"),
-    //     title: "Lemon Dessert",
-    //     price: "$5.00",
-    //     description: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
-    // },
-]
 
 const MenuPage =({setActive}) => {
     useEffect(() => {
@@ -44,34 +25,52 @@ const MenuPage =({setActive}) => {
     }, [meals])
 
     return (
-        <Main id="menu_page" data-testid="menu_page_component">
-            <section className="categories_section">
-                <SectionContainer className="container">
-                    <div className="categories">
+        <Main id="menu_page" data-testid="menu_page_component"
+            minHeight="800px"
+            paddingBottom="100px"
+        >
+            <Flex as="section" className="categories_section"
+                bg={cp.primary1}
+                marginBottom="50px"
+                padding="20px"
+            >
+                <SectionContainer className="container"
+                    flex={1}
+                    display="flex"
+                    justifyContent="center"
+                >
+                    <Flex className="categories" justify="space-between" gap="10px">
                         {categories.map((item, index) => {
                             return (
-                                <div 
+                                <CategoryButton
                                     key={index} 
-                                    className={`category ${category == item ? 'active': ''}`}
-                                    onClick={() => setCategory(item)}
-                                >
-                                    {item}
-                                </div>
+                                    categoryName={item}
+                                    setCategory={setCategory}
+                                    activeCategory={category}
+                                />
                             )
                         })}
-                    </div>
+                    </Flex>
                 </SectionContainer>
-            </section>
+            </Flex>
 
-            <section className="meals_section">
-                <SectionContainer className="container">
-                    <div className="meals">
+            <Box as="section" className="meals_section">
+                <SectionContainer className="container"
+                    flex={1}
+                    display="flex"
+                    justifyContent="center"
+                >
+                    <Grid className="meals"
+                        gridTemplateColumns="repeat(3, 1fr)"
+                        gap="60px"
+                    >
                         {loading && <MealCardsSkeleton/>}
 
                         {!loading && meals && meals.map((meal, index) => {
                             return (
                                 <MealCard
                                     key={meal.id}
+                                    id={meal.id}
                                     imageSrc={meal.imageSrc}
                                     title={meal.title}
                                     description={meal.description}
@@ -79,14 +78,41 @@ const MenuPage =({setActive}) => {
                                 />
                             )
                         })}
-                    </div>
+                    </Grid>
                 </SectionContainer>
-            </section>
+            </Box>
         </Main>
     )
 }
 
 export default MenuPage;
+
+
+
+const mealsFromServer = [
+    {
+        id: 1,
+        imageSrc: require("../../assets/images/greek salad.jpg"),
+        title: "Greek sald",
+        price: "12.99",
+        description: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
+    },
+    {
+        id: 2,
+        imageSrc: require("../../assets/images/bsd.png"),
+        title: "Bruchetta",
+        price: "5.99",
+        description: "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
+    },
+    // {
+    //     id: 3,
+    //     imageSrc: require("../../assets/images/lemon dessert.jpg"),
+    //     title: "Lemon Dessert",
+    //     price: "5.00",
+    //     description: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
+    // },
+]
+
 
 
 
