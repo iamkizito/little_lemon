@@ -2,12 +2,12 @@ import Main from "../Main";
 import SectionContainer from "../SectionContainer";
 import CartItem from "./CartItem";
 import { useCartContext } from "../../contexts/useCartContext";
-import { Box, VStack, Flex, Button } from "@chakra-ui/react";
+import { Box, Flex, Button } from "@chakra-ui/react";
 import { useEffect } from "react";
 
 
 const CartPage = () => {
-    const {cart, add, remove} = useCartContext()
+    const {cart} = useCartContext()
     const primaryColor1 = "#495E57"
     const primaryColor2 = "#F4CE14"
 
@@ -46,7 +46,7 @@ const CartPage = () => {
                     <Box flex={1} textAlign="center">
                         Quantity
                     </Box>
-                    <Box flex={1} textAlign="end">
+                    <Box flex={1} textAlign="flex-end">
                         Subtotal
                     </Box>   
                 </Flex>
@@ -61,7 +61,7 @@ const CartPage = () => {
                     })}
                 </Flex>
 
-                <Flex className="total_summary" justify="end" marginBottom={10}>
+                <Flex className="total_summary" justify="flex-end" marginBottom={10}>
 
                     <Flex flexDirection="column" gap={5} width="50%" paddingTop={5}>
                         <Box as="hr" bg={primaryColor1} height="2px"></Box>
@@ -80,7 +80,7 @@ const CartPage = () => {
                     </Flex>
                 </Flex>
 
-                <Flex justify="end" paddingBottom={20}>
+                <Flex justify="flex-end" paddingBottom={20}>
                     <Button bg={primaryColor2}>Proceed to pay</Button>
                 </Flex>
                 

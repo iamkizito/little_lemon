@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import HeroSection from "./HeroSection";
 import HighlightsSection from "./HighlightsSection";
 import AboutSection from "./AboutSection";
@@ -39,3 +39,5 @@ const HomePage = ({setActive}) => {
 }
 
 export default HomePage;
+
+

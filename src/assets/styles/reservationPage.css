@@ -5,6 +5,8 @@ main#reservation #new_reservation_section {
   min-height: 900px;
   background-color: #495E57;
   padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 main#reservation #new_reservation_section .container {
   flex: 1;
@@ -21,10 +23,16 @@ main#reservation #new_reservation_section .container .content h1 {
   font-size: 2.5rem;
   font-weight: bold;
   color: #F4CE14;
+  text-align: center;
+}
+main#reservation #new_reservation_section .container .content p {
+  text-align: center;
 }
 main#reservation #reservation_history_section {
   min-height: 600px;
   padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 main#reservation #reservation_history_section .container h1 {
   font-size: 2rem;
@@ -35,13 +43,11 @@ main#reservation #reservation_history_section .container h1 {
 main#reservation #reservation_history_section .container .reservations {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
 }
 main#reservation #reservation_history_section .container .reservations .reservation {
-  width: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
   box-shadow: 0 0 1px 0;
   margin-bottom: 10px;
@@ -73,15 +79,33 @@ main#reservation #reservation_history_section .container .reservations .reservat
 main#reservation #reservation_history_section .container .reservations .reservation .summary {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 main#reservation #reservation_history_section .container .reservations .reservation .summary .entry {
   flex: 1;
   display: flex;
+  justify-content: space-between;
 }
 main#reservation #reservation_history_section .container .reservations .reservation .summary .entry .name {
   margin-right: 10px;
 }
 
+@media screen and (max-width: 768px) {
+  main#reservation #new_reservation_section .container {
+    flex-direction: column;
+  }
+  main#reservation #new_reservation_section .container .content {
+    order: 0;
+    margin-bottom: 30px;
+  }
+  main#reservation #new_reservation_section .container #new_reservation {
+    order: 1;
+    width: 100%;
+  }
+  main#reservation #steps .step {
+    flex-direction: column;
+  }
+}
 #new_reservation {
   max-width: 500px;
   box-shadow: 0 0 2px 0;
@@ -124,6 +148,9 @@ main#reservation #reservation_history_section .container .reservations .reservat
   width: 100%;
   height: 100%;
   color: #F4CE14;
+}
+#steps .step .name {
+  flex: 1;
 }
 #steps .details {
   justify-content: start;

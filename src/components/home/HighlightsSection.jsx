@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Skeleton, SkeletonCircle, SkeletonText, Stack, Box} from '@chakra-ui/react';
+import { Skeleton } from '@chakra-ui/react';
 import paths from "../../paths";
 import { Link } from 'react-router-dom';
 import HighlightCard from "./HighlightCard";

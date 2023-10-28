@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin, faMedium, faStackOverflow} from "@fortawesome/free-brands-svg-icons";
-import '../assets/styles/footer.css';
 import footerLogo from '../assets/images/Asset 18@4x.png';
 import SectionContainer from "./SectionContainer";
 import { navLinks } from "./Header";
 import { Link } from "react-router-dom";
+import { Flex, Box, Image } from "@chakra-ui/react";
+import { colorPallete as cp } from "../variables";
+import BottomNavLink from "./BottomNavLink";
 
 const socials = [
     {
@@ -48,51 +50,90 @@ const contacts = [
 
 const Footer = ({setActive}) => {
     return (
-        <footer id="footer" data-testid="footer_component">
-            <SectionContainer className="wrapper">
-                <div className="image">
-                    <img src={footerLogo} alt="logo image" />
-                </div>
+        <Flex as="footer" id="footer" data-testid="footer_component"
+            minHeight="300px"
+            justify="center"
+            paddingTop="50px"
+            bg={cp.highlight2}
+            color={cp.highlight1}
+            paddingLeft="20px"
+            paddingRight="20px"
+        >
+            <SectionContainer className="wrapper"
+                flex={1}
+                display="flex"
+                justifyContent="space-between"
+                alignItems="start"
+                fontSize="0.75rem"
+                gap="20px"
+            >
+                <Image width="70px" objectFit="contain" src={footerLogo} alt="logo image" />
 
-                <div className="navigation">
-                    <h1 className="title">Navigation</h1>
-                    <nav className="nav_items">
+                <Box className="navigation">
+                    <Box as="h1" className="title" fontSize="1rem" fontWeight="bold" marginBottom="10px">
+                        Navigation
+                    </Box>
+                    <Box as="nav" className="nav_items">
                         {navLinks.map((navLink, index) => {
                             let name = navLink.name.toLowerCase()
                             return (
-                                <Link key={index} to={navLink.url} className="nav_item"  
+                                <BottomNavLink as={Link} key={index} to={navLink.url} className="nav_item" 
+                                    display="block"
+                                    padding="5px" 
                                     onClick={() => setActive(name)}
                                 >
                                     {navLink.name}
-                                </Link>  
+                                </BottomNavLink>  
                             )              
                         })}
-                    </nav>
-                </div>
+                    </Box>
+                </Box>
 
 
-                <div className="contacts">
-                    <h1 className="title">Contact details</h1>
+                <Box className="contacts">
+                    <Box as="h1" className="title" fontSize="1rem" fontWeight="bold" marginBottom="10px">
+                        Contact details
+                    </Box>
                     {contacts.map((contact, index) => {
                         return (
-                            <div key={index} className="contact">{contact.name}: {contact.value}</div>
+                            <Flex className="contact" flexWrap="wrap" marginBottom="10px">
+                                <Box key={index} className="name">{contact.name}:</Box>
+                                <Box key={index} className="value">{contact.value}</Box>
+                            </Flex>
                         )
                     })}
-                </div>
+                    <SocialMedia socials={socials} display={{base: 'block', md: 'none'}}/>
+                </Box>
 
-                <div className="socials">
-                    <h1 className="title">Social media</h1>
-                    {socials.map((social, index) => {
-                        return (
-                            <Link key={index} className='social' to={social.url} target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={social.icon} />
-                            </Link>
-                        )
-                    })}
-                </div>
+                <SocialMedia socials={socials} display={{base: 'none', md: 'block'}}/>
             </SectionContainer>
-        </footer>
+        </Flex>
     )
 }
 
 export default Footer;
+
+
+
+
+const SocialMedia = ({socials, ...props}) => {
+    return (
+        <Box className="social_media" {...props}>
+            <Box as="h1" className="title" fontSize="1rem" fontWeight="bold" marginBottom="10px">
+                Social media
+            </Box>
+            <Flex className="socials" gap="20px" flexWrap="wrap">
+                {socials.map((social, index) => {
+                    return (
+                        <Box as={Link} key={index} className='social' to={social.url} target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon style={{width: "100%"}} icon={social.icon} />
+                        </Box>
+                    )
+                })}
+            </Flex>
+        </Box>
+    )
+}
+
+
+

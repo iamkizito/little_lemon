@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Skeleton, SkeletonCircle, SkeletonText, Stack, Box} from '@chakra-ui/react';
-import TestimonialCard from "./Testimonial";
+import { Skeleton } from '@chakra-ui/react';
+import TestimonialCard from "./TestimonialCard";
 import SectionContainer from "../SectionContainer";
 
 

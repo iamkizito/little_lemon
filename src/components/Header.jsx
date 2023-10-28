@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import logo from '../assets/images/Logo.svg'
 import paths from "../paths";
 import { Link } from "react-router-dom";
 import SectionContainer from "./SectionContainer";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCartContext } from "../contexts/useCartContext";
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { colorPallete as cp } from "../variables";
-import NavItem from "./NavItem";
+import TopNavLink from "./TopNavLink";
+import DrawerNav from "./DrawerNav";
 
 export const navLinks = [
     {
@@ -24,7 +25,7 @@ export const navLinks = [
         url: paths.reservation
     },
     {
-        name:'Orders',
+        name:'orders',
         url: paths.orders
     },
     {
@@ -48,8 +49,8 @@ const Header = ({active}) => {
 
     return (
         <Box as="header" id="header" data-testid="header_component"
-            padding="20px 0"
-            height="80px"
+            padding="20px"
+            height={{base: "80px"}}
             fontSize="0.9rem"
             fontWeight="bold"
         >
@@ -60,20 +61,24 @@ const Header = ({active}) => {
                 alignItems="center"
             >
                 <Box className="logo">
-                    <Image src={logo} alt="Logo" />
+                    <Image width="170px" src={logo} alt="Logo" />
                 </Box>
 
-                <Flex as="nav" className="nav_items" gap="30px">
+                <Flex as="nav" className="nav_items" gap="30px" display={{base: "none", md: "flex"}}>
                     {navLinks.map((navLink, index) => {
                         return (                          
-                            <NavItem to={navLink.url} activeNav={active} navName={navLink.name}> 
+                            <TopNavLink to={navLink.url} isActive={active === navLink.name} data-testid={`${navLink.name}_nav`}> 
                                 {navLink.name[0].toUpperCase() + navLink.name.slice(1).toLowerCase()}
-                            </NavItem>
+                            </TopNavLink>
                         )              
                     })}
                 </Flex>
 
                 <CartIconLink to={paths.cart} total={totalInCart()}/>
+
+                <Box display={{base: "block", md: "none"}}>
+                    <DrawerNav/>
+                </Box>
             </SectionContainer>
         </Box>
     )
@@ -103,6 +108,5 @@ const CartIconLink = ({to, total}) => {
                 </Box>
             </Box>
         </Link>
-    )
-    
+    )   
 }

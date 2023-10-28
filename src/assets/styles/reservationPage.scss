@@ -8,6 +8,8 @@ main#reservation {
         min-height: 900px;
         background-color: $primary_color1;
         padding-top: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
 
         .container {
             flex: 1;
@@ -24,6 +26,11 @@ main#reservation {
                     font-size: 2.5rem;
                     font-weight: bold;
                     color: $primary_color2;
+                    text-align: center;
+                }
+
+                p {
+                    text-align: center;
                 }
             }
         }      
@@ -32,6 +39,8 @@ main#reservation {
     #reservation_history_section {
         min-height: 600px;
         padding-top: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
 
         .container {
 
@@ -45,13 +54,11 @@ main#reservation {
             .reservations {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                max-width: 700px;
+                margin: 0 auto;
 
                 .reservation {
-                    width: 50%;
                     display: flex; 
-                    justify-content: center;
                     align-items: center;
                     box-shadow: 0 0 1px 0;
                     margin-bottom: 10px;
@@ -89,11 +96,12 @@ main#reservation {
                     .summary {
                         display: flex;
                         flex-direction: column;
+                        flex: 1;
                         
-        
                         .entry {
                             flex: 1;
                             display: flex;
+                            justify-content: space-between;
             
                             .name {
                                 margin-right: 10px;
@@ -109,6 +117,35 @@ main#reservation {
     }
 
 
+}
+
+
+@media screen and (max-width: 768px) {
+    main#reservation {
+        #new_reservation_section {
+
+            .container {
+                flex-direction: column;
+
+                .content {
+                    order: 0;
+                    margin-bottom: 30px;
+                }
+
+                #new_reservation {
+                    order: 1;
+                    width: 100%;
+                }
+            }
+            
+        }
+
+        #steps {
+            .step {
+                flex-direction: column;
+            }
+        }
+    }
 }
 
 
@@ -157,6 +194,10 @@ main#reservation {
                 height: 100%;
                 color: $primary_color2;
             }
+        }
+
+        .name {
+            flex: 1;
         }
 
     }
@@ -346,3 +387,6 @@ main#reservation {
     }
 
 }
+
+
+

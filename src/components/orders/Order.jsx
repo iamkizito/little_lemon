@@ -27,7 +27,7 @@ const Order = ({id, date, time, imageSrc, title, price, status}) => {
                 </Flex>
             </Flex>
 
-            <Flex className="icon" flex={1} justify="end" align="center">
+            <Flex className="icon" flex={1} justify="flex-end" align="center">
                 <Box marginRight="20px">{status}</Box>
                 <FontAwesomeIcon icon={faChevronRight} />
             </Flex>

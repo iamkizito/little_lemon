@@ -30,7 +30,7 @@ const CartItem = ({item}) => {
                     <FontAwesomeIcon style={{width: "100%", height: "100%"}} icon={faCirclePlus}/>
                 </Box>   
             </Flex>
-            <Flex className="subtotal" flex={1} justify="end" align="center">
+            <Flex className="subtotal" flex={1} justify="flex-end" align="center">
                 ${item.price * item.count}
             </Flex>
         </Flex>
