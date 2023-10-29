@@ -41,7 +41,7 @@ const DrawerNav = () => {
             <DrawerBody display="block"> 
                 {navLinks.map((navLink, index) => {
                     return (                          
-                        <SideNavLink to={navLink.url} close={onClose} data-testid={`${navLink.name}_nav`}> 
+                        <SideNavLink key={index} to={navLink.url} close={onClose} data-testid={`${navLink.name}_nav`}> 
                             {navLink.name[0].toUpperCase() + navLink.name.slice(1).toLowerCase()}
                         </SideNavLink>
                     )              

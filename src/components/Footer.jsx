@@ -96,9 +96,9 @@ const Footer = ({setActive}) => {
                     </Box>
                     {contacts.map((contact, index) => {
                         return (
-                            <Flex className="contact" flexWrap="wrap" marginBottom="10px">
-                                <Box key={index} className="name">{contact.name}:</Box>
-                                <Box key={index} className="value">{contact.value}</Box>
+                            <Flex key={index} className="contact" flexWrap="wrap" marginBottom="10px">
+                                <Box className="name">{contact.name}:</Box>
+                                <Box className="value">{contact.value}</Box>
                             </Flex>
                         )
                     })}

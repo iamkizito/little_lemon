@@ -67,7 +67,7 @@ const Header = ({active}) => {
                 <Flex as="nav" className="nav_items" gap="30px" display={{base: "none", md: "flex"}}>
                     {navLinks.map((navLink, index) => {
                         return (                          
-                            <TopNavLink to={navLink.url} isActive={active === navLink.name} data-testid={`${navLink.name}_nav`}> 
+                            <TopNavLink key={index} to={navLink.url} isActive={active === navLink.name} data-testid={`${navLink.name}_nav`}> 
                                 {navLink.name[0].toUpperCase() + navLink.name.slice(1).toLowerCase()}
                             </TopNavLink>
                         )              

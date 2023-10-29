@@ -20,10 +20,6 @@ const MenuPage =({setActive}) => {
     const [category, setCategory] = useState(categories[0])
     const { meals, loading, error } = useMenuCategory(category)
 
-    useEffect(() => {
-        console.log(meals)
-    }, [meals])
-
     return (
         <Main id="menu_page" data-testid="menu_page_component"
             minHeight="800px"
@@ -154,10 +150,12 @@ const MealCardsSkeleton = () => {
     const count = 10
 
     return (
-        Array.from({length: count}, () => {
+        <>
+        {Array.from({length: count}, (index) => {
             return (
-                <Skeleton width={250} height={350} borderRadius={16}/>
+                <Skeleton key={index} width={250} height={350} borderRadius={16}/>
             )
-        })
+        })}
+        </>
     )
 }

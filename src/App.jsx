@@ -16,7 +16,7 @@ import { CartProvider } from "./contexts/useCartContext";
 import './App.css'
 
 const App = () => {
-    const [active, setActive] = useState(null)
+    const [active, setActive] = useState('home')
 
     return (
         <div id="app">

@@ -1,7 +1,7 @@
 @import './variables';
 
 
-main#reservation {
+main#reservation_page {
     font-size: 0.9rem;
 
     #new_reservation_section {
@@ -121,7 +121,7 @@ main#reservation {
 
 
 @media screen and (max-width: 768px) {
-    main#reservation {
+    main#reservation_page {
         #new_reservation_section {
 
             .container {

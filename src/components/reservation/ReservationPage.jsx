@@ -33,7 +33,7 @@ const ReservationPage = ({setActive}) => {
     const {reservations, setReservations, loading, error} = useReservations()
 
     return (
-        <Main id="reservation" data-testid="reservation_main_component">
+        <Main id="reservation_page" data-testid="reservation_page_component">
             <section id="new_reservation_section">
                 <SectionContainer className="container">
                     <NewReservation setReservations={setReservations}/>  
