@@ -8,8 +8,6 @@ import Main from "../Main";
 
 
 
-
-
 const HomePage = ({setActive}) => {
     const hero_props = {
         title: 'Little Lemon',
