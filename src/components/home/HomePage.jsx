@@ -4,6 +4,7 @@ import HighlightsSection from "./HighlightsSection";
 import AboutSection from "./AboutSection";
 import TestimonialsSection from "./TestimonialsSection";
 import '../../assets/styles/homePage.css';
+import Main from "../Main";
 
 
 
@@ -29,12 +30,12 @@ const HomePage = ({setActive}) => {
     }, [])
 
     return (
-        <div id="home" data-testid="home_component">
+        <Main id="home_page" data-testid="home_page_component">
             <HeroSection {...hero_props}/>
             <HighlightsSection/>
             <TestimonialsSection/>
-            <AboutSection {...about_props}/>
-        </div>
+            <AboutSection about_props={about_props} display={{base:"none !important", md:"block !important"}}/>
+        </Main>
     )
 }
 

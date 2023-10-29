@@ -5,6 +5,7 @@ const SectionContainer = ({children, ...props}) => {
         <Box
             maxWidth="1000px"
             margin="0 auto"
+            padding="20px"
             {...props}
         >
             {children}

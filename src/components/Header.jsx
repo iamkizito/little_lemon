@@ -49,7 +49,6 @@ const Header = ({active}) => {
 
     return (
         <Box as="header" id="header" data-testid="header_component"
-            padding="20px"
             height={{base: "80px"}}
             fontSize="0.9rem"
             fontWeight="bold"
@@ -59,6 +58,7 @@ const Header = ({active}) => {
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
+                padding="20px"
             >
                 <Box className="logo">
                     <Image width="170px" src={logo} alt="Logo" />

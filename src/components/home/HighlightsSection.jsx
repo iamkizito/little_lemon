@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { Skeleton } from '@chakra-ui/react';
 import paths from "../../paths";
 import { Link } from 'react-router-dom';
-import HighlightCard from "./HighlightCard";
+import MealCard from "../menu/MealCard";
 import SectionContainer from "../SectionContainer";
+import ActionButton from "./ActionButton";
+import { Flex, Box, Image } from "@chakra-ui/react";
+import { colorPallete as cp, maxWidth } from "../../variables";
 
 const highlights_data_sample = [
     {
@@ -50,13 +53,27 @@ const HighlightsSection = ({setActive}) => {
     }, [])
 
     return (
-        <section id="highlights" data-testid="highlights_component">
-            <SectionContainer className="wrapper">
-                <div className="heading">
-                    <h1>Specials</h1>
-                    <Link to={paths.menu} role="button" className="button" data-testid="goto_menu">Online Menu</Link>
-                </div>
-                <div className="cards">
+        <Flex as="section" id="highlights" data-testid="highlights_component"
+            minHeight="750px"
+            justify="center"
+        >
+            <SectionContainer className="container"
+                flex="1"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+            >
+                <Flex className="heading" justify="space-between" marginBottom="20px">
+                    <Box as="h1" fontSize={{base:"", md:"2rem"}} fontWeight="bold" color="black">Today's Specials</Box>
+                    <ActionButton to={paths.menu} role="button" data-testid="goto_menu"
+                        width="200px" 
+                        maxWidth={{base:"150px", md:"250px"}} 
+                        fontSize={{base:"0.9rem", md:"1rem"}}
+                    >
+                        Online Menu
+                    </ActionButton>
+                </Flex>
+                <Flex className="cards" gap="40px" flexDirection={{base:"column", md:"row"}}>
                     {loading && (
                         <>
                             <Skeleton flex={1} height={300}/>
@@ -66,7 +83,7 @@ const HighlightsSection = ({setActive}) => {
                     )}
                     {!loading && data && data.map((special, index) => {
                         return (
-                            <HighlightCard 
+                            <MealCard color="black"
                                 key={special.id}
                                 id={special.id}
                                 imageSrc={special.imageSrc}
@@ -76,9 +93,9 @@ const HighlightsSection = ({setActive}) => {
                             />
                         )
                     })}
-                </div>
+                </Flex>
             </SectionContainer>
-        </section>
+        </Flex>
     )
 }
 

@@ -22,11 +22,12 @@ const MealCard = ({id, imageSrc, title, description, price, ...props}) => {
             flex={1}
             borderRadius="20px 20px 0 0"
             bg={cp.highlight1}
+            {...props}
         >
             <Image width="100%" height="250px" objectFit="cover" src={imageSrc} alt={`${title} image`} />
             <Flex className="content" direction="column" minHeight="200px" padding="20px">            
                 <Flex className="heading" justify="space-between" fontWeight="bold">
-                    <Box className="title">{title}</Box>
+                    <Box className="title" color="black">{title}</Box>
                     <Box className="price" color={cp.secondary1}>${price}</Box>
                 </Flex>
                 <Box className="description" flex={1} fontSize="0.8rem"  marginBottom="20px">{description}</Box>
