@@ -31,7 +31,7 @@ const HeroSection = ({title, location, description, imageSrc}) => {
                         fontSize={{base:"0.9rem", md:"1rem"}} 
                         marginTop="20px"
                     >
-                        Reserve a Table
+                        Reserve Table
                     </ActionButton>
                 </Box>
                 <Box className="image"

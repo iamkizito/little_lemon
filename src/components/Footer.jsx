@@ -5,45 +5,20 @@ import footerLogo from '../assets/images/Asset 18@4x.png';
 import SectionContainer from "./SectionContainer";
 import { navLinks } from "./Header";
 import { Link } from "react-router-dom";
-import { Flex, Box, Image } from "@chakra-ui/react";
+import { Flex, Box, Image, Grid } from "@chakra-ui/react";
 import { colorPallete as cp } from "../variables";
 import FooterNavLink from "./FooterNavLink";
+import Socials from "./Socials";
 
-const socials = [
-    {
-        icon: faEnvelope,
-        url: "mailto: hello@example.com",
-    },
-    {
-            icon: faGithub,
-        url: "https://github.com",
-    },
-    {
-        icon: faLinkedin,
-        url: "https://www.linkedin.com",
-    },
-    {
-        icon: faMedium,
-        url: "https://medium.com",
-    },
-    {
-        icon: faStackOverflow,
-        url: "https://stackoverflow.com",
-    },
-];
 
 const contacts = [
     {
-        name: 'telephone1',
-        value: "+23 81202302323",
+        name: 'Telephone',
+        values: ["+23 81202302323", "+23 81232323"],
     },
     {
-        name: 'telephone2',
-        value: "+23 81232323",
-    },
-    {
-        name: 'email',
-        value: "support@littlelemon.com",
+        name: 'Email',
+        values: ["support@littlelemon.com"],
     },
 ];
 
@@ -59,81 +34,81 @@ const Footer = ({setActive}) => {
             paddingLeft="20px"
             paddingRight="20px"
         >
-            <SectionContainer className="wrapper"
+            <SectionContainer className="section-container"
                 flex={1}
                 display="flex"
-                justifyContent="space-between"
-                alignItems="start"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
                 fontSize="0.75rem"
-                gap="20px"
             >
-                <Image width="70px" objectFit="contain" src={footerLogo} alt="logo image" />
+                <Grid 
+                    gridTemplateColumns={{base:"repeat(2, 1fr)", md:"repeat(4, 1fr)"}} 
+                    justifyItems="center"
+                    alignItems="start"
+                >
+                    
+                    <Image width="70px" objectFit="contain" src={footerLogo} alt="logo image" />
 
-                <Box className="navigation">
-                    <Box as="h1" className="title" fontSize="1rem" fontWeight="bold" marginBottom="10px">
-                        Navigation
+                    <Box className="navigation" 
+                        display={{base:"none", md:"block"}}
+                    >
+                        <Box as="h1" className="title" fontSize="1rem" fontWeight="bold" marginBottom="10px">
+                            Navigation
+                        </Box>
+                        <Box as="nav" className="nav_items">
+                            {navLinks.map((navLink, index) => {
+                                let name = navLink.name.toLowerCase()
+                                return (
+                                    <FooterNavLink as={Link} key={index} to={navLink.url} className="nav_item" 
+                                        display="block"
+                                        padding="5px" 
+                                        onClick={() => setActive(name)}
+                                    >
+                                        {navLink.name}
+                                    </FooterNavLink>  
+                                )              
+                            })}
+                        </Box>
                     </Box>
-                    <Box as="nav" className="nav_items">
-                        {navLinks.map((navLink, index) => {
-                            let name = navLink.name.toLowerCase()
+
+
+                    <Box className="contacts">
+                        <Box as="h1" className="title" fontSize="1rem" fontWeight="bold" marginBottom="10px">
+                            Contact details
+                        </Box>
+
+                        {contacts.map((contact, index) => {
                             return (
-                                <FooterNavLink as={Link} key={index} to={navLink.url} className="nav_item" 
-                                    display="block"
-                                    padding="5px" 
-                                    onClick={() => setActive(name)}
-                                >
-                                    {navLink.name}
-                                </FooterNavLink>  
-                            )              
+                                <Flex key={index} className="contact" flexWrap="wrap" marginBottom="10px">
+                                    <Box className="name">{contact.name}:</Box>
+                                    {contact.values.map((value, index) => {
+                                        return (
+                                            <Box key={index} className="value">{value}</Box>
+                                        )
+                                    })}    
+                                </Flex>
+                            )
                         })}
                     </Box>
-                </Box>
 
+                    <Socials
+                        marginTop={{base:"30px", md:"0px"}}
+                        gridColumn={{base:"span 2", md:"span 1"}}
+                        iconWidth="20px"
+                    />
+                </Grid>
 
-                <Box className="contacts">
-                    <Box as="h1" className="title" fontSize="1rem" fontWeight="bold" marginBottom="10px">
-                        Contact details
-                    </Box>
-                    {contacts.map((contact, index) => {
-                        return (
-                            <Flex key={index} className="contact" flexWrap="wrap" marginBottom="10px">
-                                <Box className="name">{contact.name}:</Box>
-                                <Box className="value">{contact.value}</Box>
-                            </Flex>
-                        )
-                    })}
-                    <SocialMedia socials={socials} display={{base: 'block', md: 'none'}}/>
-                </Box>
-
-                <SocialMedia socials={socials} display={{base: 'none', md: 'block'}}/>
+                <Box as="p" marginTop="30px">Anthony Obiora • © 2022</Box>
             </SectionContainer>
         </Flex>
     )
 }
 
+
 export default Footer;
 
 
-
-
-const SocialMedia = ({socials, ...props}) => {
-    return (
-        <Box className="social_media" {...props}>
-            <Box as="h1" className="title" fontSize="1rem" fontWeight="bold" marginBottom="10px">
-                Social media
-            </Box>
-            <Flex className="socials" gap="20px" flexWrap="wrap">
-                {socials.map((social, index) => {
-                    return (
-                        <Box as={Link} key={index} className='social' to={social.url} target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon style={{width: "100%"}} icon={social.icon} />
-                        </Box>
-                    )
-                })}
-            </Flex>
-        </Box>
-    )
-}
 
 
 
