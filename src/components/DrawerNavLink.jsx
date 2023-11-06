@@ -1,7 +1,6 @@
-import { Flex, Box } from "@chakra-ui/react";
+import {Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { colorPallete as cp } from "../variables";
 
 const DrawerNavLink = ({to, children, close, ...props}) => {
     const [isPointerDown, setIsPointerDown] = useState(false)

@@ -1,5 +1,4 @@
 import paths from "../../paths";
-import { Link } from 'react-router-dom';
 import SectionContainer from "../SectionContainer";
 import { Flex, Box, Image } from "@chakra-ui/react";
 import { colorPallete as cp } from "../../variables";

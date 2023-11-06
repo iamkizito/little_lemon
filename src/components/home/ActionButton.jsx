@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Flex, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { colorPallete as cp } from "../../variables";
 

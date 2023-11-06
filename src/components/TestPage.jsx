@@ -1,4 +1,3 @@
-import { Flex, Box } from "@chakra-ui/react";
 import Main from './Main'
 import RotatingBox from "./others/RotatingCube";
 

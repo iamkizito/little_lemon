@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import SectionContainer from "../SectionContainer";
 import DetailsForm from "./DetailsForm";
 import ConfirmReservation from "./ConfirmReservation";
 import PaymentForm from "./PaymentForm";
 import ReservationStatus from './ReservationStatus';
-import paths from "../../paths";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -36,6 +34,8 @@ const NewReservation = ({setReservations}) => {
                 return <ConfirmReservation setStep={setStep} formData0={step0Data} formData1={step1Data} handleSubmit={handleSubmit}/> 
             case 3:
                 return <ReservationStatus response={response} loading={loading} error={error} setStep={setStep}/>
+            default:
+                return
         }
     }
 

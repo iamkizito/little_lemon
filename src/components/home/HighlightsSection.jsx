@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { Skeleton } from '@chakra-ui/react';
 import paths from "../../paths";
-import { Link } from 'react-router-dom';
 import MealCard from "../menu/MealCard";
 import SectionContainer from "../SectionContainer";
 import ActionButton from "./ActionButton";
-import { Flex, Box, Image } from "@chakra-ui/react";
-import { colorPallete as cp, maxWidth } from "../../variables";
+import { Flex, Box } from "@chakra-ui/react";
 
 const highlights_data_sample = [
     {

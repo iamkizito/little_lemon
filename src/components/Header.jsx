@@ -3,7 +3,7 @@ import logo from '../assets/images/Logo.svg'
 import paths from "../paths";
 import { Link } from "react-router-dom";
 import SectionContainer from "./SectionContainer";
-import { faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCartContext } from "../contexts/useCartContext";
 import { Box, Flex, Image } from "@chakra-ui/react";

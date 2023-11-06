@@ -1,5 +1,4 @@
-import { Flex, Box } from "@chakra-ui/react";
-import { forwardRef } from "react";
+import { Box } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 

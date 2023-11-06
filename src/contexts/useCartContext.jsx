@@ -1,6 +1,4 @@
-import { useState, useContext, createContext, useEffect } from "react";
-import useBackend from '../hooks/useBackend'
-import paths from "../paths";
+import { useState, useContext, createContext } from "react";
 
 
 const CartContext = createContext()
@@ -21,7 +19,7 @@ export const CartProvider = ({children}) => {
             updatedCart.push(item)
         })
 
-        if (found == false) {
+        if (found === false) {
             newItem.count = 1
             updatedCart.push(newItem)
         }

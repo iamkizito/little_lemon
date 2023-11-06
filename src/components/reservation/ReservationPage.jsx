@@ -4,7 +4,6 @@ import Main from "../Main";
 import SectionContainer from "../SectionContainer";
 import NewReservation from "./NewReservation";
 import Reservation from "./Reservation";
-import { Box, Flex } from "@chakra-ui/react";
 
 const InitialReservationsFromServer = [
     {
