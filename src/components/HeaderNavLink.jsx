@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { colorPallete as cp } from "../variables";
 
-const TopNavLink = ({to, children, isActive, ...props}) => {
+const HeaderNavLink = ({to, children, isActive, ...props}) => {
     const [isHovered, setIsHovered] = useState(false)
 
     const getStyle = () => {
@@ -33,4 +33,4 @@ const TopNavLink = ({to, children, isActive, ...props}) => {
 }
 
 
-export default TopNavLink;
+export default HeaderNavLink;

@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import MealCard from "./MealCard";
 import Main from "../Main";
 import SectionContainer from "../SectionContainer";
 import CategoryButton from "./CategoryButton";
+import CategoryScrollXButton from "./CategoryScrollXButton";
 import { Skeleton } from "@chakra-ui/react";
 import { useState } from "react";
 import { Flex, Box, Grid } from "@chakra-ui/react";
@@ -11,6 +12,8 @@ import { colorPallete as cp } from "../../variables";
 
 
 const MenuPage =({setActive}) => {
+    const categoryScrollerRef = useRef(null)
+
     useEffect(() => {
         setActive('menu')
     }, [])
@@ -26,28 +29,41 @@ const MenuPage =({setActive}) => {
             paddingBottom="100px"
         >
             <Flex as="section" className="categories_section"
+                position="relative"
                 bg={cp.primary1}
                 marginBottom="50px"
                 padding="20px"
             >
-                <SectionContainer className="container"
+                <Flex className="scrollwrapper" ref={categoryScrollerRef}
                     flex={1}
-                    display="flex"
-                    justifyContent="center"
+                    overflowX={{base:"scroll", md:""}}
+                    sx ={{
+                        "&::-webkit-scrollbar": {
+                            display: 'none',
+                        },
+                    }}
                 >
-                    <Flex className="categories" justify="space-between" gap="10px">
-                        {categories.map((item, index) => {
-                            return (
-                                <CategoryButton
-                                    key={index} 
-                                    categoryName={item}
-                                    setCategory={setCategory}
-                                    activeCategory={category}
-                                />
-                            )
-                        })}
-                    </Flex>
-                </SectionContainer>
+                    <SectionContainer className="container"
+                        flex={1}
+                        display="flex"
+                        justifyContent="center"          
+                    >
+                        <Flex className="categories" justify="space-between" gap="10px">
+                            {categories.map((item, index) => {
+                                return (
+                                    <CategoryButton
+                                        key={index} 
+                                        categoryName={item}
+                                        setCategory={setCategory}
+                                        activeCategory={category}
+                                    />
+                                )
+                            })}
+                        </Flex>
+                    </SectionContainer>
+                </Flex>
+                <CategoryScrollXButton direction="left" elementRef={categoryScrollerRef}/>
+                <CategoryScrollXButton elementRef={categoryScrollerRef}/>
             </Flex>
 
             <Box as="section" className="meals_section">
@@ -57,7 +73,7 @@ const MenuPage =({setActive}) => {
                     justifyContent="center"
                 >
                     <Grid className="meals"
-                        gridTemplateColumns="repeat(3, 1fr)"
+                        gridTemplateColumns={{base: "1fr", md:"repeat(3, 1fr)"}}
                         gap="60px"
                     >
                         {loading && <MealCardsSkeleton/>}
@@ -153,7 +169,7 @@ const MealCardsSkeleton = () => {
         <>
         {Array.from({length: count}, (index) => {
             return (
-                <Skeleton key={index} width={250} height={350} borderRadius={16}/>
+                <Skeleton key={index} width={{base:370, md:250}} height={{base:170, md:350}} borderRadius={16}/>
             )
         })}
         </>

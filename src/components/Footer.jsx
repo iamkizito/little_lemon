@@ -7,7 +7,7 @@ import { navLinks } from "./Header";
 import { Link } from "react-router-dom";
 import { Flex, Box, Image } from "@chakra-ui/react";
 import { colorPallete as cp } from "../variables";
-import BottomNavLink from "./BottomNavLink";
+import FooterNavLink from "./FooterNavLink";
 
 const socials = [
     {
@@ -77,13 +77,13 @@ const Footer = ({setActive}) => {
                         {navLinks.map((navLink, index) => {
                             let name = navLink.name.toLowerCase()
                             return (
-                                <BottomNavLink as={Link} key={index} to={navLink.url} className="nav_item" 
+                                <FooterNavLink as={Link} key={index} to={navLink.url} className="nav_item" 
                                     display="block"
                                     padding="5px" 
                                     onClick={() => setActive(name)}
                                 >
                                     {navLink.name}
-                                </BottomNavLink>  
+                                </FooterNavLink>  
                             )              
                         })}
                     </Box>

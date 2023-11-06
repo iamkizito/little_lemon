@@ -8,7 +8,7 @@ const CategoryButton = ({categoryName, activeCategory, setCategory, ...props}) =
 
     const getStyle = () => {
         const style = {
-            minWidth: "100px",
+            textWrap:"nowrap",
             color: "black",
             fontWeight: "bold",
             padding: "10px",
@@ -32,6 +32,8 @@ const CategoryButton = ({categoryName, activeCategory, setCategory, ...props}) =
 
     return (
         <Box 
+            minWidth={{base: "100px", md:"100px"}}
+            fontSize={{base: "0.85rem", md:"1rem"}}
             style={getStyle()}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)} 

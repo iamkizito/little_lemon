@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCartContext } from "../contexts/useCartContext";
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { colorPallete as cp } from "../variables";
-import TopNavLink from "./TopNavLink";
+import HeaderNavLink from "./HeaderNavLink";
 import DrawerNav from "./DrawerNav";
 
 export const navLinks = [
@@ -67,9 +67,9 @@ const Header = ({active}) => {
                 <Flex as="nav" className="nav_items" gap="30px" display={{base: "none", md: "flex"}}>
                     {navLinks.map((navLink, index) => {
                         return (                          
-                            <TopNavLink key={index} to={navLink.url} isActive={active === navLink.name} data-testid={`${navLink.name}_nav`}> 
+                            <HeaderNavLink key={index} to={navLink.url} isActive={active === navLink.name} data-testid={`${navLink.name}_nav`}> 
                                 {navLink.name[0].toUpperCase() + navLink.name.slice(1).toLowerCase()}
-                            </TopNavLink>
+                            </HeaderNavLink>
                         )              
                     })}
                 </Flex>

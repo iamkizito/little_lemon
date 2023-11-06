@@ -9,6 +9,7 @@ import OrdersPage from "./components/orders/OrdersPage";
 import LoginPage from "./components/auth/LoginPage";
 import RegisterPage from "./components/auth/RegisterPage";
 import CartPage from "./components/cart/CartPage";
+import TestPage from "./components/TestPage";
 import paths from './paths';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { CartProvider } from "./contexts/useCartContext";
@@ -32,6 +33,7 @@ const App = () => {
                             <Route exact path={paths.login} element={<LoginPage setActive={setActive}/>}/>
                             <Route exact path={paths.register} element={<RegisterPage/>}/>
                             <Route exact path={paths.cart} element={<CartPage/>}/>
+                            <Route exact path={paths.test} element={<TestPage/>}/>
                             {/* <Route path="*" element={<NoPage />} /> */}
                         </Routes>
                         <Footer setActive={setActive}/>

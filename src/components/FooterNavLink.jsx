@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const BottomNavLink = ({to, children, ...props}) => {
+const FooterNavLink = ({to, children, ...props}) => {
     const [isHovered, setIsHovered] = useState(false)
 
     return (
@@ -19,4 +19,4 @@ const BottomNavLink = ({to, children, ...props}) => {
 }
 
 
-export default BottomNavLink;
+export default FooterNavLink;

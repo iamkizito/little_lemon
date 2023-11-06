@@ -5,7 +5,8 @@ const paths = {
     "reservation": "/reservation",
     "login": "/login",
     "register": "/register",
-    "cart": "/cart"
+    "cart": "/cart",
+    "test": "/test",
 }
 
 export default paths;
