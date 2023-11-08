@@ -10,7 +10,7 @@ import { useDisclosure } from '@chakra-ui/react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { navLinks } from './Header';
-import DrawerNavLink from './NavDrawerLink';
+import NavDrawerLink from './NavDrawerLink';
 import { useRef } from 'react';
 import { Button } from '@chakra-ui/react';
 import { colorPallete as cp } from "../variables";
@@ -40,9 +40,9 @@ const NavDrawer = () => {
             <DrawerBody display="block"> 
                 {navLinks.map((navLink, index) => {
                     return (                          
-                        <DrawerNavLink key={index} to={navLink.url} close={onClose} data-testid={`${navLink.name}_nav`}> 
+                        <NavDrawerLink key={index} to={navLink.url} close={onClose} data-testid={`${navLink.name}_nav`}> 
                             {navLink.name[0].toUpperCase() + navLink.name.slice(1).toLowerCase()}
-                        </DrawerNavLink>
+                        </NavDrawerLink>
                     )              
                 })}
             </DrawerBody>
