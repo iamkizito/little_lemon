@@ -35,12 +35,13 @@ const NavDrawer = () => {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>Menu</DrawerHeader>
+            <DrawerHeader>Quick Navigation</DrawerHeader>
   
             <DrawerBody display="block"> 
                 {navLinks.map((navLink, index) => {
                     return (                          
                         <NavDrawerLink key={index} to={navLink.url} close={onClose} data-testid={`${navLink.name}_nav`}> 
+                            <FontAwesomeIcon icon={navLink.icon} style={{marginRight:"10px"}}/>
                             {navLink.name[0].toUpperCase() + navLink.name.slice(1).toLowerCase()}
                         </NavDrawerLink>
                     )              

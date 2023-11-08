@@ -5,27 +5,40 @@ import { Box, Flex, Image } from "@chakra-ui/react";
 import HeaderNavLink from "./HeaderNavLink";
 import NavDrawer from "./NavDrawer";
 import CartDrawer from "./cart/CartDrawer";
+import { 
+    faHouse,
+    faBowlFood,
+    faCreditCard,
+    faTable,
+    faArrowRightToBracket,
+} from "@fortawesome/free-solid-svg-icons"
+
 
 export const navLinks = [
     {
         name:'home',
-        url: paths.home
+        url: paths.home,
+        icon: faHouse
     },
     {
         name:'menu',
-        url: paths.menu
+        url: paths.menu,
+        icon: faBowlFood
     },
     {
         name:'reservation',
-        url: paths.reservation
+        url: paths.reservation,
+        icon: faTable
     },
     {
         name:'orders',
-        url: paths.orders
+        url: paths.orders,
+        icon: faCreditCard
     },
     {
         name:'login',
-        url: paths.login
+        url: paths.login,
+        icon: faArrowRightToBracket
     },
 ]
 
