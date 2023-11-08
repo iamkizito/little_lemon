@@ -42,14 +42,6 @@ const Header = ({active}) => {
 
     const {cart} = useCartContext()
 
-    const totalInCart = () => {
-        let count = 0
-        cart.forEach((item, index) => {
-            count += item.count
-        })
-        return count
-    }
-
     return (
         <Box as="header" id="header" data-testid="header_component"
             height={{base: "80px"}}
