@@ -2,7 +2,7 @@ import {Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const DrawerNavLink = ({to, children, close, ...props}) => {
+const NavDrawerLink = ({to, children, close, ...props}) => {
     const [isPointerDown, setIsPointerDown] = useState(false)
 
     return (
@@ -24,4 +24,4 @@ const DrawerNavLink = ({to, children, close, ...props}) => {
 }
 
 
-export default DrawerNavLink;
+export default NavDrawerLink;

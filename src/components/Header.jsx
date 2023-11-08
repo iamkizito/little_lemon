@@ -3,13 +3,16 @@ import logo from '../assets/images/Logo.svg'
 import paths from "../paths";
 import { Link } from "react-router-dom";
 import SectionContainer from "./SectionContainer";
+
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCartContext } from "../contexts/useCartContext";
+
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { colorPallete as cp } from "../variables";
 import HeaderNavLink from "./HeaderNavLink";
-import DrawerNav from "./DrawerNav";
+import NavDrawer from "./NavDrawer";
+import CartDrawer from "./cart/CartDrawer";
 
 export const navLinks = [
     {
@@ -74,11 +77,12 @@ const Header = ({active}) => {
                     })}
                 </Flex>
 
-                <CartIconLink to={paths.cart} total={totalInCart()}/>
+                <CartDrawer/>
 
                 <Box display={{base: "block", md: "none"}}>
-                    <DrawerNav/>
+                    <NavDrawer/>
                 </Box>
+                
             </SectionContainer>
         </Box>
     )
@@ -86,27 +90,3 @@ const Header = ({active}) => {
 export default Header;
 
 
-
-
-const CartIconLink = ({to, total}) => {
-
-    const [isHovered, setIsHovered] = useState(false);
-
-    return (
-        <Link to={to}  className="cart_link">
-            <Box className="cart" 
-                position="relative" 
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                color={isHovered ? cp.primary2 : cp.primary1}
-            >
-                <Box className="count" color={cp.primary2} fontSize="1rem" position="absolute" left="28px" top="-15px">
-                    {total}
-                </Box>
-                <Box className="icon" width="30px" height="30px">
-                    <FontAwesomeIcon style={{width:"100%", height:"100%"}} icon={faCartShopping}/>
-                </Box>
-            </Box>
-        </Link>
-    )   
-}

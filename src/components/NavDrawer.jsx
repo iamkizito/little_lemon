@@ -10,13 +10,13 @@ import { useDisclosure } from '@chakra-ui/react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { navLinks } from './Header';
-import DrawerNavLink from './DrawerNavLink';
+import DrawerNavLink from './NavDrawerLink';
 import { useRef } from 'react';
 import { Button } from '@chakra-ui/react';
 import { colorPallete as cp } from "../variables";
 
 
-const DrawerNav = () => {
+const NavDrawer = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
   
@@ -35,7 +35,7 @@ const DrawerNav = () => {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>Navigation</DrawerHeader>
+            <DrawerHeader>Menu</DrawerHeader>
   
             <DrawerBody display="block"> 
                 {navLinks.map((navLink, index) => {
@@ -52,4 +52,4 @@ const DrawerNav = () => {
     )
 }
 
-export default DrawerNav;
+export default NavDrawer;

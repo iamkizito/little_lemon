@@ -14,7 +14,7 @@ const Order = ({id, date, time, imageSrc, title, price, status}) => {
             cursor = "pointer"
             onMouseEnter={() => setIsHovered(true)} 
             onMouseLeave={() => setIsHovered(false)}
-            backgroundColor={isHovered ? cp.primary2 : ''}
+            backgroundColor={isHovered ? "lightgrey" : ''}
         >
             <Flex className="item_details" flex={1}>
                 <Box className="image" width={20} height={20} marginRight={5}>
