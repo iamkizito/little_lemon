@@ -1,15 +1,7 @@
-import React, { useState } from "react";
 import logo from '../assets/images/Logo.svg'
 import paths from "../paths";
-import { Link } from "react-router-dom";
 import SectionContainer from "./SectionContainer";
-
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useCartContext } from "../contexts/useCartContext";
-
 import { Box, Flex, Image } from "@chakra-ui/react";
-import { colorPallete as cp } from "../variables";
 import HeaderNavLink from "./HeaderNavLink";
 import NavDrawer from "./NavDrawer";
 import CartDrawer from "./cart/CartDrawer";
@@ -39,8 +31,6 @@ export const navLinks = [
 
 
 const Header = ({active}) => {
-
-    const {cart} = useCartContext()
 
     return (
         <Box as="header" id="header" data-testid="header_component"
